@@ -36,24 +36,7 @@ export default function Home() {
   const router = useRouter();
   var tasks : TaskColumn[] = []
   const params = useParams();
-  const tempData = [
-    {
-        "id": "6541ef719da70655fc32a451",
-        "title": "Test title",
-        "desc": "Test Desc",
-        "status": "Not Completed",
-        "Date": "2019-05-01T05:50:00.000Z",
-        "authorId": "user_2XWio8j02vMfWSKFtqgL3ifPujL"
-    },
-    {
-      "id": "6541ef719da70655fc32a451",
-      "title": "Test title",
-      "desc": "Test Desc",
-      "status": "Not Completed",
-      "Date": "2019-05-01T05:50:00.000Z",
-      "authorId": "user_2XWio8j02vMfWSKFtqgL3ifPujL"
-  }
-]
+
   const [flag,setFlag] = useState(true);
   const [tasks1,setTasks1] = useState(tasks)
   const getTasks = async()=>{
@@ -63,7 +46,7 @@ export default function Home() {
 
           setFlag(false);
 
-      console.log(temp.data)
+      // console.log(temp.data)
       // tasks = temp.data.filter((item)=>{ return item.status==="Pending"})
       tasks = temp.data;
 
@@ -72,7 +55,7 @@ export default function Home() {
       })
       // setTasks(tasks)
       setTasks1(tasks)
-      console.log(tasks.length)
+      // console.log(tasks.length)
     } catch (error) {
       console.log(error)
     }
