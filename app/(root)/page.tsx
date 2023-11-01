@@ -21,6 +21,7 @@ import Navbar from '@/components/Navbar';
 import { useAuth } from "@clerk/nextjs";
 import { Heading } from '@/components/ui/Heading';
 import { Plus } from 'lucide-react';
+import { TaskClient } from './components/client';
 
 export default function Home() {
   const { isLoaded, userId, sessionId, getToken } = useAuth();
@@ -29,11 +30,29 @@ export default function Home() {
   }
   const router = useRouter();
   const params = useParams();
+  const tempData = [
+    {
+        "id": "6541ef719da70655fc32a451",
+        "title": "Test title",
+        "desc": "Test Desc",
+        "status": "Not Completed",
+        "Date": "2019-05-01T05:50:00.000Z",
+        "authorId": "user_2XWio8j02vMfWSKFtqgL3ifPujL"
+    },
+    {
+      "id": "6541ef719da70655fc32a451",
+      "title": "Test title",
+      "desc": "Test Desc",
+      "status": "Not Completed",
+      "Date": "2019-05-01T05:50:00.000Z",
+      "authorId": "user_2XWio8j02vMfWSKFtqgL3ifPujL"
+  }
+]
   return (
     <>
     {userId}
       <Navbar />
-      <div className="flex min-h-screen flex-col  p-2">
+      <div className="flex  flex-col  p-2">
         <div className='flex items-center justify-between mb-2'>
           <Heading title={`Tasks (${4})`}  description='all your pending tasks'/>
           <Button onClick={()=>router.push(`/createTask`)} >
@@ -44,6 +63,11 @@ export default function Home() {
         </div>
         <Separator />
       </div>
+      <div className='flex-col '>
+            <div className='flex-1 space-y-4 p-8 pt-6'>
+                <TaskClient data={tempData} />
+            </div>
+        </div>
     </>
   )
 }

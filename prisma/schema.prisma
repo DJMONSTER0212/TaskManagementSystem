@@ -16,7 +16,7 @@ model Task {
   id       String    @id @default(auto()) @map("_id") @db.ObjectId
   title    String
   desc     String
-  status   String @default("Not Completed")
-  Date     DateTime 
+  status   String @default("Pending")
+  Date     DateTime
   authorId String
 }
