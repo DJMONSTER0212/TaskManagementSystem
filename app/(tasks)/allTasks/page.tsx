@@ -22,6 +22,8 @@ import { useAuth } from "@clerk/nextjs";
 import { Heading } from '@/components/ui/Heading';
 import { Plus } from 'lucide-react';
 import { TaskClient } from './components/client';
+import { useState } from 'react';
+import { TaskColumn } from './components/columns';
 
 export default function Home() {
     const { isLoaded, userId, sessionId, getToken } = useAuth();
@@ -48,6 +50,9 @@ export default function Home() {
             "authorId": "user_2XWio8j02vMfWSKFtqgL3ifPujL"
         }
     ]
+    var tasks : TaskColumn[] = []
+    const [flag, setFlag] = useState(true);
+    const [tasks1, setTasks1] = useState(tasks)
     return (
         <>
             {userId}

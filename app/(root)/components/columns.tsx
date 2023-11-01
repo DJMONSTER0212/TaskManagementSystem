@@ -8,7 +8,7 @@ import { CellAction } from "./cell-action"
 export type TaskColumn = {
     id: string
     title: string
-    Date: string
+    Date: Date
     desc : string
     status : string
     authorId : string
