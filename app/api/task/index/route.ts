@@ -1,10 +1,12 @@
 import prismadb from "@/lib/prismadb";
 import { NextResponse } from "next/server";
+import { cookies } from 'next/headers'
 
 export async function GET(
     req:Request,
 
 ){
+    const cookieData = cookies().getAll()
     try {
         // const body = req.json()
         const {searchParams} = new URL(req.url);
