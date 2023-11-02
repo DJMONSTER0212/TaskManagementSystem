@@ -4,7 +4,7 @@ import { useParams, useRouter } from 'next/navigation';
 
 import React from 'react'
 
-const page = () => {
+const CompletedTasks = () => {
     const router = useRouter();
     const params = useParams();
     return (
@@ -27,4 +27,4 @@ const page = () => {
     )
 }
 
-export default page
+export default CompletedTasks
