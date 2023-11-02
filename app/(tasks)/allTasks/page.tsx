@@ -16,12 +16,12 @@ import axios from 'axios';
 import { Skeleton } from '@/components/ui/skeleton';
 
 export default function Home() {
+    const router = useRouter();
+    const params = useParams();
     const { isLoaded, userId, sessionId, getToken } = useAuth();
     if (!isLoaded || !userId) {
         return null;
     }
-    const router = useRouter();
-    const params = useParams();
     var tasks: TaskColumn[] = []
     const [flag, setFlag] = useState(true);
     const [tasks1, setTasks1] = useState(tasks)

@@ -18,13 +18,13 @@ import { TaskColumn } from './components/columns';
 import axios from 'axios';
 
 export default function Home() {
+  const router = useRouter();
+  const params = useParams();
   const { isLoaded, userId, sessionId, getToken } = useAuth();
   if (!isLoaded || !userId) {
     return null;
   }
-  const router = useRouter();
   var tasks : TaskColumn[] = []
-  const params = useParams();
   const [test,setTest] = useState(false);
   const [flag,setFlag] = useState(true);
   const [tasks1,setTasks1] = useState(tasks)

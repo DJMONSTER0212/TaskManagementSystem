@@ -38,7 +38,7 @@ const formSchema = z.object({
 const Create = () => {
     const router = useRouter();
     const params = useParams();
-    const [loading,setLoading] = useState(false)
+    const [loading, setLoading] = useState(false)
     const { isLoaded, userId, sessionId, getToken } = useAuth();
     if (!isLoaded || !userId) {
         return null;
@@ -52,28 +52,28 @@ const Create = () => {
         },
     })
 
-    const onSubmit =async (values: z.infer<typeof formSchema>)=> {
+    const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
             setLoading(true)
             const options = {
-                headers: {"content-type": "application/json"}
+                headers: { "content-type": "application/json" }
             }
-            const data ={
-                title : values.title,
-                date : values.date,
-                authorId : userId,
-                desc : values.desc
+            const data = {
+                title: values.title,
+                date: values.date,
+                authorId: userId,
+                desc: values.desc
             }
 
-            const result = await axios.post('/api/task/add',data,options)
-            if(result){
+            const result = await axios.post('/api/task/add', data, options)
+            if (result) {
                 router.refresh();
                 router.push("/");
                 toast.success("Task Created")
             }
         } catch (error) {
             toast.error("Something Went Wrong")
-        }finally{
+        } finally {
             setLoading(false);
         }
         console.log(values)

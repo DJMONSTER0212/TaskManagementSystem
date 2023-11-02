@@ -21,6 +21,7 @@ export const TaskClient: React.FC<TaskClientProps> = ({
     data
 }) => {
     const router = useRouter();
+    const params = useParams();
     const f1 = () => {
         if (notcompleted) {
             setNotcompleted(!notcompleted)
@@ -55,13 +56,12 @@ export const TaskClient: React.FC<TaskClientProps> = ({
         // console.log(notcompleted)
         getData()
     }, [completed, notcompleted])
-    const params = useParams();
 
     return (
         <>
 
             <p className="text-sm">Type Finished for looking all completed Tasks</p>
-            <Separator/>
+            <Separator />
             <p className="text-sm">Type Pending for looking all not completed Tasks</p>
             <DataTable searchKey="status" columns={columns} data={data} />
 
