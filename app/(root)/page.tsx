@@ -25,7 +25,7 @@ export default function Home() {
     return null;
   }
   var tasks : TaskColumn[] = []
-  const [test,setTest] = useState(false);
+
   const [flag,setFlag] = useState(true);
   const [tasks1,setTasks1] = useState(tasks)
   const getTasks = async()=>{
@@ -50,7 +50,7 @@ export default function Home() {
   useEffect(()=>{
     console.log("123")
     getTasks()
-  },[test])
+  },[])
   if(tasks1.length===0&& flag) {
     return <><div className="flex mt-20 justify-center items-center space-x-4">
     <Skeleton className="h-12 w-12 rounded-full" />
@@ -80,7 +80,7 @@ export default function Home() {
       </div>
       <div className='flex-col '>
             <div className='flex-1 space-y-4 p-8 pt-6'>
-                <TaskClient data={tasks1} setTest={setTest} />
+                <TaskClient data={tasks1}  />
             </div>
         </div>
     </>

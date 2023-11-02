@@ -19,13 +19,13 @@ export default function Home() {
     var tasks: TaskColumn[] = []
     const router = useRouter();
     const params = useParams();
-    const [flag, setFlag] = useState(true);
-    const [tasks1, setTasks1] = useState(tasks)
+
     const { isLoaded, userId, sessionId, getToken } = useAuth();
     if (!isLoaded || !userId) {
         return null;
     }
-
+    const [flag, setFlag] = useState(true);
+    const [tasks1, setTasks1] = useState(tasks)
     const getTasks = async () => {
         try {
             const temp = await axios.get(`/api/task/index?authorId=${userId}`)

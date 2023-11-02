@@ -38,11 +38,11 @@ const formSchema = z.object({
 const Create = () => {
     const router = useRouter();
     const params = useParams();
-    const [loading, setLoading] = useState(false)
     const { isLoaded, userId, sessionId, getToken } = useAuth();
     if (!isLoaded || !userId) {
         return null;
     }
+    const [loading, setLoading] = useState(false)
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -76,7 +76,7 @@ const Create = () => {
         } finally {
             setLoading(false);
         }
-        console.log(values)
+        // console.log(values)
     }
     return (
         <>
