@@ -20,14 +20,11 @@ import axios from 'axios';
 export default function Home() {
   const router = useRouter();
   const params = useParams();
-  const { isLoaded, userId, sessionId, getToken } = useAuth();
-  if (!isLoaded || !userId) {
-    return null;
-  }
   var tasks : TaskColumn[] = []
 
   const [flag,setFlag] = useState(true);
   const [tasks1,setTasks1] = useState(tasks)
+  const { isLoaded, userId, sessionId, getToken } = useAuth();
   const getTasks = async()=>{
     try {
         console.log(userId)
@@ -51,6 +48,9 @@ export default function Home() {
     console.log("123")
     getTasks()
   },[])
+  if (!isLoaded || !userId) {
+    return null;
+  }
   if(tasks1.length===0&& flag) {
     return <><div className="flex mt-20 justify-center items-center space-x-4">
     <Skeleton className="h-12 w-12 rounded-full" />

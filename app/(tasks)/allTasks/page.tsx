@@ -20,10 +20,6 @@ export default function Home() {
     const router = useRouter();
     const params = useParams();
 
-    const { isLoaded, userId, sessionId, getToken } = useAuth();
-    if (!isLoaded || !userId) {
-        return null;
-    }
     const [flag, setFlag] = useState(true);
     const [tasks1, setTasks1] = useState(tasks)
     const getTasks = async () => {
@@ -39,6 +35,10 @@ export default function Home() {
     useEffect(() => {
         getTasks()
     }, [])
+    const { isLoaded, userId, sessionId, getToken } = useAuth();
+    if (!isLoaded || !userId) {
+        return null;
+    }
 
     if (tasks1.length === 0 && flag) {
         return <><div className="flex mt-20 justify-center items-center space-x-4">

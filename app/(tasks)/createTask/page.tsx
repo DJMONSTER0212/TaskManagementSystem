@@ -39,9 +39,6 @@ const Create = () => {
     const router = useRouter();
     const params = useParams();
     const { isLoaded, userId, sessionId, getToken } = useAuth();
-    if (!isLoaded || !userId) {
-        return null;
-    }
     const [loading, setLoading] = useState(false)
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -51,7 +48,6 @@ const Create = () => {
             date: "",
         },
     })
-
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
             setLoading(true)
@@ -78,6 +74,10 @@ const Create = () => {
         }
         // console.log(values)
     }
+    if (!isLoaded || !userId) {
+        return null;
+    }
+
     return (
         <>
             <Navbar />
