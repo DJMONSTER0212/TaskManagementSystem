@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Plus } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { TaskColumn, columns } from "./columns";
 import { Label } from "@/components/ui/label"
 import { DataTable } from "@/components/ui/data-table";
@@ -22,40 +22,9 @@ export const TaskClient: React.FC<TaskClientProps> = ({
 }) => {
     const router = useRouter();
     const params = useParams();
-    const f1 = () => {
-        if (notcompleted) {
-            setNotcompleted(!notcompleted)
-        }
-        setcompleted(!completed)
-    }
-    const f2 = () => {
-        if (completed) {
-            setcompleted(!completed)
-        }
-        setNotcompleted(!notcompleted)
-    }
 
-    const [completed, setcompleted] = useState(false)
-    const [notcompleted, setNotcompleted] = useState(false)
-    const getData = async () => {
 
-        if (completed) {
-            let temp = data.filter((task) => { return task.status === "Completed" })
-            data = temp;
-            console.log(data)
-        }
-        else if (notcompleted) {
-            let temp = data.filter((task) => { return task.status === "Not Completed" })
-            // console.log(temp)
-            data = temp;
-            console.log(data)
-        }
-    }
-    useEffect(() => {
-        // console.log(completed)
-        // console.log(notcompleted)
-        getData()
-    }, [completed, notcompleted])
+
 
     return (
         <>

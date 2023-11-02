@@ -10,21 +10,21 @@ import { useAuth } from "@clerk/nextjs";
 import { Heading } from '@/components/ui/Heading';
 import { Plus } from 'lucide-react';
 import { TaskClient } from './components/client';
-import { useEffect, useState } from 'react';
+import { useState,useEffect } from 'react';
 import { TaskColumn } from './components/columns';
 import axios from 'axios';
 import { Skeleton } from '@/components/ui/skeleton';
 
 export default function Home() {
+    var tasks: TaskColumn[] = []
     const router = useRouter();
     const params = useParams();
+    const [flag, setFlag] = useState(true);
+    const [tasks1, setTasks1] = useState(tasks)
     const { isLoaded, userId, sessionId, getToken } = useAuth();
     if (!isLoaded || !userId) {
         return null;
     }
-    var tasks: TaskColumn[] = []
-    const [flag, setFlag] = useState(true);
-    const [tasks1, setTasks1] = useState(tasks)
 
     const getTasks = async () => {
         try {

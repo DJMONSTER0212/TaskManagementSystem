@@ -20,12 +20,11 @@ import {
 } from "@/components/ui/table"
 
 import { Input } from "@/components/ui/input"
-import React, { useEffect, useState } from "react"
+import React, { useState, useEffect } from "react"
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[]
     data: TData[]
     searchKey:string;
-    setTest : (val: boolean)=>void;
 }
 
 export function DataTable<TData, TValue>({
@@ -51,7 +50,7 @@ export function DataTable<TData, TValue>({
         }
     })
     useEffect(()=>{
-        console.log(data)
+        // console.log(data)
     },[data])
 
     return (
