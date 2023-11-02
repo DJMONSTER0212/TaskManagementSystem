@@ -65,7 +65,7 @@ const Create = () => {
                 desc : values.desc
             }
 
-            const result = await axios.post('/api/task',data,options)
+            const result = await axios.post('/api/task/add',data,options)
             if(result){
                 router.refresh();
                 router.push("/");

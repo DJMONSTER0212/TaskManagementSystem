@@ -38,7 +38,7 @@ export const CellAction: React.FC<CellActionProps> = ({
             const options = {
                 headers: { "content-type": "application/json" }
             }
-            const result = await axios.patch(`/api/task/${taskId}`, newData, options)
+            const result = await axios.patch(`/api/task/update/${taskId}`, newData, options)
             setLoading(true);
             // console.log(result)
             router.push("/completedTask");
