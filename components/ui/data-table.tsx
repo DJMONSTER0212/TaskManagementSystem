@@ -25,6 +25,7 @@ interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[]
     data: TData[]
     searchKey:string;
+    setTest : (val: boolean)=>void;
 }
 
 export function DataTable<TData, TValue>({

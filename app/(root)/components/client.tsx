@@ -12,17 +12,19 @@ import { DataTable } from "@/components/ui/data-table";
 
 interface TaskClientProps{
     data: TaskColumn[]
+    setTest : (val: boolean)=>void
 }
 
 export const TaskClient: React.FC<TaskClientProps> = ({
-    data
+    data,
+    setTest
 })=>{
     const router = useRouter();
     const params = useParams();
 
     return (
         <>
-        <DataTable searchKey="title" columns={columns} data={data}/>
+        <DataTable searchKey="title" setTest = {setTest}  columns={columns} data={data}/>
         {/* <Heading title="API" description="API calls for Billboards "/> */}
         <Separator />
         {/* <ApiList entityName="billboards" entityIdName="billboardId"/> */}

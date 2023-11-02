@@ -20,28 +20,40 @@ export const CellAction: React.FC<CellActionProps> = ({
     data
 }) => {
 
+    const router = useRouter();
+    const params = useParams();
+
     const [loading, setLoading] = useState(false);
     const [open, setOpen] = useState(false);
     const onComplete = async () => {
-        // try {
+        try {
+            const taskId = data.id
+            const newData = {
+                title: data.title,
+                authorId: data.authorId,
+                date: data.Date,
+                desc: data.desc,
+                status: "Finished"
+            }
+            const options = {
+                headers: { "content-type": "application/json" }
+            }
+            const result = await axios.patch(`/api/task/${taskId}`, newData, options)
+            setLoading(true);
+            // console.log(result)
+            router.push("/completedTask");
+            router.refresh();
+            toast.success("Task completed")
 
-        //     setLoading(true);
-        //     await axios.delete(`/api/${params.storeId}/billboards/${data.id}`)
-        router.refresh();
-        // router.push("/");
-        toast.success("Task completed")
-
-        // } catch (error) {
-        //     toast.error("Make Sure you remove all Categories using this billboard first.");
-        // } finally {
-        //     setLoading(false)
-        setOpen(false);
-        // }
+        } catch (error) {
+            toast.error("SomeThing went Wrong.");
+        } finally {
+            setLoading(false)
+            setOpen(false);
+        }
     }
 
 
-    const router = useRouter();
-    const params = useParams();
 
     return (
         <>

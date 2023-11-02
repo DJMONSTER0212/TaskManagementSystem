@@ -55,7 +55,7 @@ export default function Home() {
     }
     return (
         <>
-            {userId}
+
             <Navbar />
             <div className="flex  flex-col  p-2">
                 <div className='flex items-center justify-between mb-2'>
