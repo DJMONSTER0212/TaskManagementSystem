@@ -28,7 +28,7 @@ export default function Home() {
   const getTasks = async()=>{
     try {
         console.log(userId)
-        const temp = await axios.get(`/api/task/index?authorId=${userId}`)
+        const temp = await axios.get(`/api/${userId}`)
           setFlag(false);
 
 
