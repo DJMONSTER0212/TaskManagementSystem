@@ -40,18 +40,18 @@ export default function Home() {
         return null;
     }
 
-    if (tasks1.length === 0 && flag) {
-        return <><div className="flex mt-20 justify-center items-center space-x-4">
-            <Skeleton className="h-12 w-12 rounded-full" />
-            <div className="space-y-4">
-                <Skeleton className="h-10 w-[250px]" />
-                <Skeleton className="h-10 w-[200px]" />
-                <Skeleton className="h-10 w-[200px]" />
-                <Skeleton className="h-10 w-[200px]" />
-                <Skeleton className="h-10 w-[200px]" />
-                <Skeleton className="h-10 w-[200px]" />
-            </div>
-        </div></>
+    // if (tasks1.length === 0 && flag) {
+    //     return <><div className="flex mt-20 justify-center items-center space-x-4">
+    //         <Skeleton className="h-12 w-12 rounded-full" />
+    //         <div className="space-y-4">
+    //             <Skeleton className="h-10 w-[250px]" />
+    //             <Skeleton className="h-10 w-[200px]" />
+    //             <Skeleton className="h-10 w-[200px]" />
+    //             <Skeleton className="h-10 w-[200px]" />
+    //             <Skeleton className="h-10 w-[200px]" />
+    //             <Skeleton className="h-10 w-[200px]" />
+    //         </div>
+    //     </div></>
     }
     return (
         <>
